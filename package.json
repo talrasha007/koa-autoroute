@@ -1,0 +1,12 @@
+{
+  "name": "koa-autoroute",
+  "version": "0.0.1",
+  "repository": "https://github.com/talrasha007/koa-autoroute.git",
+  "description": "Auto route for koa.js",
+  "dependencies": {
+    "koa-route": "~2.4.0"
+  },
+  "devDependencies": {
+    "koa": "~0.18.0"
+  }
+}
