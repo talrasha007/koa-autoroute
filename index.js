@@ -1,4 +1,5 @@
-var fs = require('fs'),
+var _ = require('codash'),
+    fs = require('fs'),
     path = require('path'),
     methods = require('koa-route/node_modules/methods');
     koaRoute = require('koa-route');
@@ -38,12 +39,12 @@ var autoRoute = module.exports = function (routePath, dir) {
                 if (idx !== parts.length - 1) {
                     handler = handler[p];
                 } else {
-                    handler = (handler[method] && handler[method][p]) || (handler.all && handler.all[p]);
+                    handler = (handler[method] && handler[method][p]) || (handler.all && handler.all[p]) || handler[p];
                 }
             }
         });
 
-        if (handler) yield* handler.call(this, next);
+        if (handler && _.isGenerator(handler)) yield* handler.call(this, next);
         else yield* next;
     });
 };
