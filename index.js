@@ -1,4 +1,4 @@
-var _ = require('codash'),
+var _ = require('co-lodash'),
     fs = require('fs'),
     path = require('path'),
     methods = require('koa-route/node_modules/methods');
